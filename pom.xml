@@ -13,9 +13,10 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <sonar.projectKey>test-project</sonar.projectKey>
         <sonar.projectName>Test Project</sonar.projectName>
-        <sonar.token></sonar.token> <!-- Token for authentication -->
         <sonar.host.url>http://localhost:9000</sonar.host.url>
     </properties>
 
@@ -31,11 +32,6 @@
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.10.2</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.12.1</version>
-        </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
@@ -45,6 +41,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.12.1</version>
                 <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                     <encoding>UTF-8</encoding>
                     <compilerArgument>-Xlint:unchecked</compilerArgument>
                 </configuration>
